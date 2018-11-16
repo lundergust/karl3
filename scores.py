@@ -1,6 +1,7 @@
 import requests
 import urllib.request
 from bs4 import BeautifulSoup
+from datetime import datetime, timedelta
 
 url = "https://www.basketball-reference.com/boxscores/"
 
@@ -15,7 +16,8 @@ for td in soup.find_all('td')[1]:
     # (trs[0].text, trs[1].text, trs[2].text, trs[3].text, trs[4].text, trs[5].text))
 
 ################################################################################
-
+yesterday = datetime.strftime(datetime.now()-timedelta(1), '%Y-%m-%d')
+print_queue = [print('\nNBA action from ' + yesterday)]
 nscore_1 = trs[0].text
 nscore_1 = nscore_1.strip('\n')
 nscore_1 = nscore_1.strip('\t')
@@ -46,8 +48,8 @@ if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
     game1b = nscore_2
     game1c = nscore_3
     game1d = nscore_4
-
-## then search for game 2
+    print_queue.append(print("--------\nGAME 1 \n{} \n{} \n{} \n{} \n--------\n".format(game1a,game1b,game1c,game1d)))
+    ## then search for game 2
     nscore_1 = trs[7].text
     nscore_1 = nscore_1.strip('\n')
     nscore_1 = nscore_1.strip('\t')
@@ -78,7 +80,7 @@ if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
         game2b = nscore_2
         game2c = nscore_3
         game2d = nscore_4
-
+        print_queue.append(print("--------\nGAME 2 \n{} \n{} \n{} \n{} \n--------\n".format(game2a,game2b,game2c,game2d)))
         # Search for Game 3
         nscore_1 = trs[14].text
         nscore_1 = nscore_1.strip('\n')
@@ -109,7 +111,7 @@ if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
             game3b = nscore_2
             game3c = nscore_3
             game3d = nscore_4
-
+            print_queue.append(print("--------\nGAME 3 \n{} \n{} \n{} \n{} \n--------\n".format(game3a,game3b,game3c,game3d)))
             # Search for Game 4
             nscore_1 = trs[21].text
             nscore_1 = nscore_1.strip('\n')
@@ -140,7 +142,7 @@ if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
                 game4b = nscore_2
                 game4c = nscore_3
                 game4d = nscore_4
-
+                print_queue.append(print("--------\nGAME 4 \n{} \n{} \n{} \n{} \n--------\n".format(game4a,game4b,game4c,game4d)))
                 # Search for game 5
                 nscore_1 = trs[28].text
                 nscore_1 = nscore_1.strip('\n')
@@ -171,6 +173,7 @@ if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
                     game5b = nscore_2
                     game5c = nscore_3
                     game5d = nscore_4
+                    print_queue.append(print("--------\nGAME 5 \n{} \n{} \n{} \n{} \n--------\n".format(game5a,game5b,game5c,game5d)))
 
                     # Search for game 6
                     nscore_1 = trs[35].text
@@ -202,6 +205,7 @@ if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
                         game6b = nscore_2
                         game6c = nscore_3
                         game6d = nscore_4
+                        print_queue.append(print("--------\nGAME 6 \n{} \n{} \n{} \n{} \n--------\n".format(game6a,game6b,game6c,game6d)))
 
                         # Search for game 7
                         nscore_1 = trs[42].text
@@ -233,6 +237,7 @@ if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
                             game7b = nscore_2
                             game7c = nscore_3
                             game7d = nscore_4
+                            print_queue.append(print("--------\nGAME 7 \n{} \n{} \n{} \n{} \n--------\n".format(game7a,game7b,game7c,game7d)))
 
                             # search for game 8
                             nscore_1 = trs[49].text
@@ -264,6 +269,7 @@ if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
                                 game8b = nscore_2
                                 game8c = nscore_3
                                 game8d = nscore_4
+                                print_queue.append(print("--------\nGAME 8 \n{} \n{} \n{} \n{} \n--------\n".format(game8a,game8b,game8c,game8d)))
 
                                 # search for game 9
                                 nscore_1 = trs[56].text
@@ -295,6 +301,7 @@ if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
                                     game9b = nscore_2
                                     game9c = nscore_3
                                     game9d = nscore_4
+                                    print_queue.append(print("--------\nGAME 9 \n{} \n{} \n{} \n{} \n--------\n".format(game9a,game9b,game9c,game9d)))
 
                                     # Search for game 10
                                     nscore_1 = trs[63].text
@@ -326,6 +333,7 @@ if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
                                         game10b = nscore_2
                                         game10c = nscore_3
                                         game10d = nscore_4
+                                        print_queue.append(print("--------\nGAME 10 \n{} \n{} \n{} \n{} \n--------\n".format(game10a,game10b,game10c,game10d)))
 
                                         # Search for game 11
                                         nscore_1 = trs[70].text
@@ -357,97 +365,40 @@ if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
                                             game11b = nscore_2
                                             game11c = nscore_3
                                             game11d = nscore_4
+                                            print_queue.append(print("--------\nGAME 11 \n{} \n{} \n{} \n{} \n--------\n".format(game11a,game11b,game11c,game11d)))
 
                                             # if all eleven games print all
-                                            print("--------\nGAME 1 \n{} \n{} \n{} \n{} \n--------\n".format(game1a,game1b,game1c,game1d))
-                                            print("--------\nGAME 2 \n{} \n{} \n{} \n{} \n--------\n".format(game2a,game2b,game2c,game2d))
-                                            print("--------\nGAME 3 \n{} \n{} \n{} \n{} \n--------\n".format(game3a,game3b,game3c,game3d))
-                                            print("--------\nGAME 4 \n{} \n{} \n{} \n{} \n--------\n".format(game4a,game4b,game4c,game4d))
-                                            print("--------\nGAME 5 \n{} \n{} \n{} \n{} \n--------\n".format(game5a,game5b,game5c,game5d))
-                                            print("--------\nGAME 6 \n{} \n{} \n{} \n{} \n--------\n".format(game6a,game6b,game6c,game6d))
-                                            print("--------\nGAME 7 \n{} \n{} \n{} \n{} \n--------\n".format(game7a,game7b,game7c,game7d))
-                                            print("--------\nGAME 8 \n{} \n{} \n{} \n{} \n--------\n".format(game8a,game8b,game8c,game8d))
-                                            print("--------\nGAME 9 \n{} \n{} \n{} \n{} \n--------\n".format(game9a,game9b,game9c,game9d))
-                                            print("--------\nGAME 10 \n{} \n{} \n{} \n{} \n--------\n".format(game10a,game10b,game10c,game10d))
-                                            print("--------\nGAME 11 \n{} \n{} \n{} \n{} \n--------\n".format(game11a,game11b,game11c,game11d))
-
-
+                                            print_queue
                                         else:
-                                            # if no eleventh game, print games 1-10
-                                            print("--------\nGAME 1 \n{} \n{} \n{} \n{} \n--------\n".format(game1a,game1b,game1c,game1d))
-                                            print("--------\nGAME 2 \n{} \n{} \n{} \n{} \n--------\n".format(game2a,game2b,game2c,game2d))
-                                            print("--------\nGAME 3 \n{} \n{} \n{} \n{} \n--------\n".format(game3a,game3b,game3c,game3d))
-                                            print("--------\nGAME 4 \n{} \n{} \n{} \n{} \n--------\n".format(game4a,game4b,game4c,game4d))
-                                            print("--------\nGAME 5 \n{} \n{} \n{} \n{} \n--------\n".format(game5a,game5b,game5c,game5d))
-                                            print("--------\nGAME 6 \n{} \n{} \n{} \n{} \n--------\n".format(game6a,game6b,game6c,game6d))
-                                            print("--------\nGAME 7 \n{} \n{} \n{} \n{} \n--------\n".format(game7a,game7b,game7c,game7d))
-                                            print("--------\nGAME 8 \n{} \n{} \n{} \n{} \n--------\n".format(game8a,game8b,game8c,game8d))
-                                            print("--------\nGAME 9 \n{} \n{} \n{} \n{} \n--------\n".format(game9a,game9b,game9c,game9d))
-                                            print("--------\nGAME 10 \n{} \n{} \n{} \n{} \n--------\n".format(game10a,game10b,game10c,game10d))
+                                            # if no eleventh game, print games 1-
+                                            print_queue
                                     else:
                                         # if no tenth game, print games 1-9
-                                        print("--------\nGAME 1 \n{} \n{} \n{} \n{} \n--------\n".format(game1a,game1b,game1c,game1d))
-                                        print("--------\nGAME 2 \n{} \n{} \n{} \n{} \n--------\n".format(game2a,game2b,game2c,game2d))
-                                        print("--------\nGAME 3 \n{} \n{} \n{} \n{} \n--------\n".format(game3a,game3b,game3c,game3d))
-                                        print("--------\nGAME 4 \n{} \n{} \n{} \n{} \n--------\n".format(game4a,game4b,game4c,game4d))
-                                        print("--------\nGAME 5 \n{} \n{} \n{} \n{} \n--------\n".format(game5a,game5b,game5c,game5d))
-                                        print("--------\nGAME 6 \n{} \n{} \n{} \n{} \n--------\n".format(game6a,game6b,game6c,game6d))
-                                        print("--------\nGAME 7 \n{} \n{} \n{} \n{} \n--------\n".format(game7a,game7b,game7c,game7d))
-                                        print("--------\nGAME 8 \n{} \n{} \n{} \n{} \n--------\n".format(game8a,game8b,game8c,game8d))
-                                        print("--------\nGAME 9 \n{} \n{} \n{} \n{} \n--------\n".format(game9a,game9b,game9c,game9d))
+                                        print_queue
                                 else:
                                     # if no ninth game, print only games 1-8
-                                    print("--------\nGAME 1 \n{} \n{} \n{} \n{} \n--------\n".format(game1a,game1b,game1c,game1d))
-                                    print("--------\nGAME 2 \n{} \n{} \n{} \n{} \n--------\n".format(game2a,game2b,game2c,game2d))
-                                    print("--------\nGAME 3 \n{} \n{} \n{} \n{} \n--------\n".format(game3a,game3b,game3c,game3d))
-                                    print("--------\nGAME 4 \n{} \n{} \n{} \n{} \n--------\n".format(game4a,game4b,game4c,game4d))
-                                    print("--------\nGAME 5 \n{} \n{} \n{} \n{} \n--------\n".format(game5a,game5b,game5c,game5d))
-                                    print("--------\nGAME 6 \n{} \n{} \n{} \n{} \n--------\n".format(game6a,game6b,game6c,game6d))
-                                    print("--------\nGAME 7 \n{} \n{} \n{} \n{} \n--------\n".format(game7a,game7b,game7c,game7d))
-                                    print("--------\nGAME 8 \n{} \n{} \n{} \n{} \n--------\n".format(game8a,game8b,game8c,game8d))
-
+                                    print_queue
                             else:
                                 # if no eight game, print only games 1-7
-                                print("--------\nGAME 1 \n{} \n{} \n{} \n{} \n--------\n".format(game1a,game1b,game1c,game1d))
-                                print("--------\nGAME 2 \n{} \n{} \n{} \n{} \n--------\n".format(game2a,game2b,game2c,game2d))
-                                print("--------\nGAME 3 \n{} \n{} \n{} \n{} \n--------\n".format(game3a,game3b,game3c,game3d))
-                                print("--------\nGAME 4 \n{} \n{} \n{} \n{} \n--------\n".format(game4a,game4b,game4c,game4d))
-                                print("--------\nGAME 5 \n{} \n{} \n{} \n{} \n--------\n".format(game5a,game5b,game5c,game5d))
-                                print("--------\nGAME 6 \n{} \n{} \n{} \n{} \n--------\n".format(game6a,game6b,game6c,game6d))
-                                print("--------\nGAME 7 \n{} \n{} \n{} \n{} \n--------\n".format(game7a,game7b,game7c,game7d))
+                                print_queue
                         else:
                             # if no seventh game, print only games 1-6
-                            print("--------\nGAME 1 \n{} \n{} \n{} \n{} \n--------\n".format(game1a,game1b,game1c,game1d))
-                            print("--------\nGAME 2 \n{} \n{} \n{} \n{} \n--------\n".format(game2a,game2b,game2c,game2d))
-                            print("--------\nGAME 3 \n{} \n{} \n{} \n{} \n--------\n".format(game3a,game3b,game3c,game3d))
-                            print("--------\nGAME 4 \n{} \n{} \n{} \n{} \n--------\n".format(game4a,game4b,game4c,game4d))
-                            print("--------\nGAME 5 \n{} \n{} \n{} \n{} \n--------\n".format(game5a,game5b,game5c,game5d))
-                            print("--------\nGAME 6 \n{} \n{} \n{} \n{} \n--------\n".format(game6a,game6b,game6c,game6d))
+                            print_queue
                     else:
                         # if no sixth game, print only games 1-5
-                        print("--------\nGAME 1 \n{} \n{} \n{} \n{} \n--------\n".format(game1a,game1b,game1c,game1d))
-                        print("--------\nGAME 2 \n{} \n{} \n{} \n{} \n--------\n".format(game2a,game2b,game2c,game2d))
-                        print("--------\nGAME 3 \n{} \n{} \n{} \n{} \n--------\n".format(game3a,game3b,game3c,game3d))
-                        print("--------\nGAME 4 \n{} \n{} \n{} \n{} \n--------\n".format(game4a,game4b,game4c,game4d))
-                        print("--------\nGAME 5 \n{} \n{} \n{} \n{} \n--------\n".format(game5a,game5b,game5c,game5d))
+                        print_queue
 
                 else:
                     # if no fifth game, print only games 1 2 3 4
-                    print("--------\nGAME 1 \n{} \n{} \n{} \n{} \n--------\n".format(game1a,game1b,game1c,game1d))
-                    print("--------\nGAME 2 \n{} \n{} \n{} \n{} \n--------\n".format(game2a,game2b,game2c,game2d))
-                    print("--------\nGAME 3 \n{} \n{} \n{} \n{} \n--------\n".format(game3a,game3b,game3c,game3d))
-                    print("--------\nGAME 4 \n{} \n{} \n{} \n{} \n--------\n".format(game4a,game4b,game4c,game4d))
+                    print_queue
             else:
                 # if no fourth game, print only games 1 2 3
-                print("--------\nGAME 1 \n{} \n{} \n{} \n{} \n--------\n".format(game1a,game1b,game1c,game1d))
-                print("--------\nGAME 2 \n{} \n{} \n{} \n{} \n--------\n".format(game2a,game2b,game2c,game2d))
-                print("--------\nGAME 3 \n{} \n{} \n{} \n{} \n--------\n".format(game3a,game3b,game3c,game3d))
+                print_queue
         else:
             # if no third game, print only games 1 and 2
-            print("--------\nGAME 1 \n{} \n{} \n{} \n{} \n--------\n".format(game1a,game1b,game1c,game1d))
-            print("--------\nGAME 2 \n{} \n{} \n{} \n{} \n--------\n".format(game2a,game2b,game2c,game2d))
+            print_queue
     else:
         # if no second game, print only game 1
-        print("--------\nGAME 1 \n{} \n{} \n{} \n{} \n--------\n".format(game1a,game1b,game1c,game1d))
+        print_queue
 else:
     print("There were no NBA games played yesterday")
