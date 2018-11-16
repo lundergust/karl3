@@ -12,8 +12,6 @@ html_content = r.text
 soup = BeautifulSoup(html_content,"html.parser")
 for td in soup.find_all('td')[1]:
     trs = soup.find_all('tr')
-    # print("-%s - %s - %s - %s - %s - %s\n" % \
-    # (trs[0].text, trs[1].text, trs[2].text, trs[3].text, trs[4].text, trs[5].text))
 
 ################################################################################
 yesterday = datetime.strftime(datetime.now()-timedelta(1), '%Y-%m-%d')
@@ -366,11 +364,146 @@ if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
                                             game11c = nscore_3
                                             game11d = nscore_4
                                             print_queue.append(print("--------\nGAME 11 \n{} \n{} \n{} \n{} \n--------\n".format(game11a,game11b,game11c,game11d)))
-
-                                            # if all eleven games print all
-                                            print_queue
+                                            # Search for game 12
+                                            nscore_1 = trs[70].text
+                                            nscore_1 = nscore_1.strip('\n')
+                                            nscore_1 = nscore_1.strip('\t')
+                                            nscore_1 = nscore_1.replace('\n',' ')
+                                            nscore_1 = nscore_1.replace('\t',' ')
+                                            nscore_2 = trs[71].text
+                                            nscore_2 = nscore_2.strip('\n')
+                                            nscore_2 = nscore_2.strip('\t')
+                                            nscore_2 = nscore_2.replace('\n',' ')
+                                            nscore_2 = nscore_2.replace('\t',' ')
+                                            nscore_3 = trs[75].text
+                                            nscore_3 = nscore_3.strip('\n')
+                                            nscore_3 = nscore_3.strip('\t')
+                                            nscore_3 = nscore_3.replace('\n',' ')
+                                            nscore_3 = nscore_3.replace('\t',' ')
+                                            nscore_4 = trs[76].text
+                                            nscore_4 = nscore_4.strip('\n')
+                                            nscore_4 = nscore_4.strip('\t')
+                                            nscore_4 = nscore_4.replace('\n',' ')
+                                            nscore_4 = nscore_4.replace('\t',' ')
+                                            index1 = nscore_1.find("Division")
+                                            index2 = nscore_2.find("Division")
+                                            index3 = nscore_3.find("Division")
+                                            index4 = nscore_4.find("Division")
+                                            if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
+                                                game12a = nscore_1
+                                                game12b = nscore_2
+                                                game12c = nscore_3
+                                                game12d = nscore_4
+                                                print_queue.append(print("--------\nGAME 12 \n{} \n{} \n{} \n{} \n--------\n".format(game12a,game12b,game12c,game12d)))
+                                                # Search for game 13
+                                                nscore_1 = trs[70].text
+                                                nscore_1 = nscore_1.strip('\n')
+                                                nscore_1 = nscore_1.strip('\t')
+                                                nscore_1 = nscore_1.replace('\n',' ')
+                                                nscore_1 = nscore_1.replace('\t',' ')
+                                                nscore_2 = trs[71].text
+                                                nscore_2 = nscore_2.strip('\n')
+                                                nscore_2 = nscore_2.strip('\t')
+                                                nscore_2 = nscore_2.replace('\n',' ')
+                                                nscore_2 = nscore_2.replace('\t',' ')
+                                                nscore_3 = trs[75].text
+                                                nscore_3 = nscore_3.strip('\n')
+                                                nscore_3 = nscore_3.strip('\t')
+                                                nscore_3 = nscore_3.replace('\n',' ')
+                                                nscore_3 = nscore_3.replace('\t',' ')
+                                                nscore_4 = trs[76].text
+                                                nscore_4 = nscore_4.strip('\n')
+                                                nscore_4 = nscore_4.strip('\t')
+                                                nscore_4 = nscore_4.replace('\n',' ')
+                                                nscore_4 = nscore_4.replace('\t',' ')
+                                                index1 = nscore_1.find("Division")
+                                                index2 = nscore_2.find("Division")
+                                                index3 = nscore_3.find("Division")
+                                                index4 = nscore_4.find("Division")
+                                                if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
+                                                    game13a = nscore_1
+                                                    game13b = nscore_2
+                                                    game13c = nscore_3
+                                                    game13d = nscore_4
+                                                    print_queue.append(print("--------\nGAME 13 \n{} \n{} \n{} \n{} \n--------\n".format(game13a,game13b,game13c,game13d)))
+                                                    # Search for game 14
+                                                    nscore_1 = trs[70].text
+                                                    nscore_1 = nscore_1.strip('\n')
+                                                    nscore_1 = nscore_1.strip('\t')
+                                                    nscore_1 = nscore_1.replace('\n',' ')
+                                                    nscore_1 = nscore_1.replace('\t',' ')
+                                                    nscore_2 = trs[71].text
+                                                    nscore_2 = nscore_2.strip('\n')
+                                                    nscore_2 = nscore_2.strip('\t')
+                                                    nscore_2 = nscore_2.replace('\n',' ')
+                                                    nscore_2 = nscore_2.replace('\t',' ')
+                                                    nscore_3 = trs[75].text
+                                                    nscore_3 = nscore_3.strip('\n')
+                                                    nscore_3 = nscore_3.strip('\t')
+                                                    nscore_3 = nscore_3.replace('\n',' ')
+                                                    nscore_3 = nscore_3.replace('\t',' ')
+                                                    nscore_4 = trs[76].text
+                                                    nscore_4 = nscore_4.strip('\n')
+                                                    nscore_4 = nscore_4.strip('\t')
+                                                    nscore_4 = nscore_4.replace('\n',' ')
+                                                    nscore_4 = nscore_4.replace('\t',' ')
+                                                    index1 = nscore_1.find("Division")
+                                                    index2 = nscore_2.find("Division")
+                                                    index3 = nscore_3.find("Division")
+                                                    index4 = nscore_4.find("Division")
+                                                    if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
+                                                        game14a = nscore_1
+                                                        game14b = nscore_2
+                                                        game14c = nscore_3
+                                                        game14d = nscore_4
+                                                        print_queue.append(print("--------\nGAME 14 \n{} \n{} \n{} \n{} \n--------\n".format(game14a,game14,game14c,game14d)))
+                                                        # Search for game 15
+                                                        nscore_1 = trs[70].text
+                                                        nscore_1 = nscore_1.strip('\n')
+                                                        nscore_1 = nscore_1.strip('\t')
+                                                        nscore_1 = nscore_1.replace('\n',' ')
+                                                        nscore_1 = nscore_1.replace('\t',' ')
+                                                        nscore_2 = trs[71].text
+                                                        nscore_2 = nscore_2.strip('\n')
+                                                        nscore_2 = nscore_2.strip('\t')
+                                                        nscore_2 = nscore_2.replace('\n',' ')
+                                                        nscore_2 = nscore_2.replace('\t',' ')
+                                                        nscore_3 = trs[75].text
+                                                        nscore_3 = nscore_3.strip('\n')
+                                                        nscore_3 = nscore_3.strip('\t')
+                                                        nscore_3 = nscore_3.replace('\n',' ')
+                                                        nscore_3 = nscore_3.replace('\t',' ')
+                                                        nscore_4 = trs[76].text
+                                                        nscore_4 = nscore_4.strip('\n')
+                                                        nscore_4 = nscore_4.strip('\t')
+                                                        nscore_4 = nscore_4.replace('\n',' ')
+                                                        nscore_4 = nscore_4.replace('\t',' ')
+                                                        index1 = nscore_1.find("Division")
+                                                        index2 = nscore_2.find("Division")
+                                                        index3 = nscore_3.find("Division")
+                                                        index4 = nscore_4.find("Division")
+                                                        if index1 == -1 and index2 == -1 and index3 == -1 and index4 ==-1:
+                                                            game15a = nscore_1
+                                                            game15b = nscore_2
+                                                            game15c = nscore_3
+                                                            game15d = nscore_4
+                                                            print_queue.append(print("--------\nGAME 15 \n{} \n{} \n{} \n{} \n--------\n".format(game15a,game15,game15c,game15d)))
+                                                            # if all 15 games, print all
+                                                            print_queue
+                                                        else:
+                                                            # if no 15th game, print 1-14
+                                                            print_queue
+                                                    else:
+                                                        # if no 14th game, print 1-13
+                                                        print_queue
+                                                else:
+                                                    # if no 13th game, print 1-12
+                                                    print_queue
+                                            else:
+                                            # if no 12th game, print 1-11
+                                                print_queue
                                         else:
-                                            # if no eleventh game, print games 1-
+                                            # if no eleventh game, print games 1-10
                                             print_queue
                                     else:
                                         # if no tenth game, print games 1-9
